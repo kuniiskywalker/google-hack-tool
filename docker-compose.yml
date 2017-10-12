@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+    
+    jupyter:
+        build: ./jupyter
+        ports:
+           - 8888:8888
+        volumes:
+           - ./public:/mnt
+        links:
+           - mongodb
+
+    redis:
+        image: redis:latest
+        ports:
+           - "6379:6379"
+        volumes:
+           - redis-data:/data
+        command: redis-server --appendonly yes
+        environment:
+           - TZ=Asia/Tokyo 
+
+    get-page:
+        build: ./get-page
+        env_file: .env
+        links:
+           - mongodb
+           - get-body
+           - redis
+    
+    get-body:
+        build: ./get-body
+        env_file: .env
+        ports:
+           - 8000:8000
+        links:
+           - redis
+
+    mongodb:
+        image: mongo:3.4.4
+        restart: always
+        container_name: mongo-container
+        ports:
+            - 27017:27017
+        volumes:
+            - db-data:/data/db
+
+volumes:
+  db-data:
+    driver: local
+  redis-data:
+    driver: local
+
