@@ -19,23 +19,12 @@ http.createServer(async (req, res) => {
   try {
     const API_KEY = process.env.API_KEY;
     const SEARCH_ENGINE_KEY = process.env.SEARCH_ENGINE_KEY;
-    
-
-    console.log("これは日本語です");   // /search?q=%E3%81%82
-    console.log(req.url);   // /search?q=%E3%81%82
-    console.log(decodeURI(req.url));    // /search?q=あ
-    console.log(decodeURIComponent(req.url));   // /search?q=あ
-
 
     const data = url.parse(req.url,true).query;
     const keyword = data.keyword;
     const limit = data.limit || 10;
 
     let items = await getSearchCache(keyword, limit);
-
-    console.log("items");
-    console.log(keyword);
-    console.log(items);
 
     if(!items) {
       items = await getSearchResult(API_KEY, SEARCH_ENGINE_KEY, keyword, limit);

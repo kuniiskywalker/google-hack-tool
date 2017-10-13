@@ -6,10 +6,9 @@ const striptags = require('striptags');
 
 const keyword = process.argv[2];
 
-var MongoClient = require("mongodb").MongoClient;
+const MongoClient = require("mongodb").MongoClient;
  
-// 接続文字列
-var db_host = "mongodb://mongodb:27017/test";
+const db_host = "mongodb://mongodb:27017/test";
 
 if (!keyword) {
   console.error('invlalid argument');
