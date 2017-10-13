@@ -43,7 +43,7 @@ Gather the results of google's search
 --------------------
 
 ```
-docker-compose run --rm get-page "search word"
+docker-compose run --rm collect "search word"
 ```
 
 Analysis by jupyternotebook
