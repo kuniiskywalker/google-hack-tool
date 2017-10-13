@@ -15,8 +15,10 @@ if (!keyword) {
   return;
 }
 
+const limit = 30;
+
 (async () => {
-    const items = await getSearchResult(keyword, 30);
+    const items = await getSearchResult(keyword, limit);
     const list = await Promise.all(items.map(async item => {
 
         try {
@@ -48,6 +50,7 @@ if (!keyword) {
     // .filter(item => item.http_status == '200')
     const db = await MongoClient.connect(db_host);
     const collection = db.collection("sites");
+    await collection.remove({search_keyword:{$eq: keyword}})
     list
     .forEach(item => {
         console.log(item);
