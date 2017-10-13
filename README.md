@@ -2,6 +2,8 @@ google-hack-tool
 ====================
 A tool to analyze google search results.
 
+![summary](https://github.com/kuniiskywalker/google-hack-tool/blob/master/summary.jpg)
+
 Set credential file
 --------------------
 
