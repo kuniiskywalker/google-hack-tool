@@ -21,12 +21,21 @@ services:
         environment:
            - TZ=Asia/Tokyo 
 
-    get-page:
-        build: ./get-page
+    get-search-result:
+        build: ./get-search-result
+        env_file: .env
+        ports:
+           - "1337:1337"
+        links:
+           - redis
+
+    collect:
+        build: ./collect
         env_file: .env
         links:
            - mongodb
            - get-body
+           - get-search-result
            - redis
     
     get-body:
@@ -36,6 +45,11 @@ services:
            - 8000:8000
         links:
            - redis
+
+    analysis:
+        build: ./analysis
+        links:
+           - mongodb
 
     mongodb:
         image: mongo:3.4.4
