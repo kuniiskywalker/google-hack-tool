@@ -36,7 +36,6 @@ services:
            - mongodb
            - get-body
            - get-search-result
-           - redis
     
     get-body:
         build: ./get-body
