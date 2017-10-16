@@ -53,7 +53,6 @@ services:
     mongodb:
         image: mongo:3.4.4
         restart: always
-        container_name: mongo-container
         ports:
             - 27017:27017
         volumes:
