@@ -65,7 +65,7 @@ Access mongodb
 --------------------
 
 ```
-docker exec -ti mongodb mongo admin
+docker-compose exec mongodb mongo admin
 ```
 
 ## mongodb
