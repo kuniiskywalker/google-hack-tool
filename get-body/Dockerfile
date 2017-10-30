@@ -1,9 +1,8 @@
 FROM python:3
 
-RUN pip install diffbot
 RUN pip install hug
 
-RUN pip install redis
+RUN pip install urllib3 redis readability-lxml html2text
 
 WORKDIR /data
 

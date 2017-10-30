@@ -13,14 +13,9 @@ Please set the google authentication information of API_KEY, SEARCH_ENGINE_KEY w
 
 https://console.developers.google.com/apis/credentials
 
-Diffbot authentication information of DIFFBOT_TOKEN should be set with the following URL
-
-https://www.diffbot.com/
-
 ```.env
 API_KEY=hogehoge
 SEARCH_ENGINE_KEY=fugafuga
-DIFFBOT_TOKEN=hogefuga
 ```
 
 Build docker image
