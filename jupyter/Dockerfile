@@ -26,6 +26,14 @@ RUN pip install janome
 # 品詞を数字におきかえてパーセプトロンとかCNNとかつかえるようにするやつ
 RUN pip install gensim
 
+# 
+RUN pip install tensorflow
+
+# kerasが依存
+RUN conda install scipy
+
+RUN pip install keras
+
 ADD ipaexg.ttf /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/fonts/ttf/
 
 WORKDIR /mnt

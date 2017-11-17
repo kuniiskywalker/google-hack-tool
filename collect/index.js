@@ -5,6 +5,7 @@ const sleep = require('sleep');
 const striptags = require('striptags');
 
 const keyword = process.argv[2];
+const limit = process.argv[3] || 30;
 
 const MongoClient = require("mongodb").MongoClient;
  
@@ -15,9 +16,8 @@ if (!keyword) {
   return;
 }
 
-const limit = 30;
-
 (async () => {
+
     const items = await getSearchResult(keyword, limit);
     const list = await Promise.all(items.map(async item => {
 

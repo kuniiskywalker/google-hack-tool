@@ -38,7 +38,12 @@ Gather the results of google's search
 --------------------
 
 ```
-docker-compose run --rm collect "search word"
+docker-compose run --rm collect "{search word}" {limit}
+```
+
+example:
+```
+docker-compose run --rm collect "japan tourism" 30
 ```
 
 Analysis by jupyternotebook
